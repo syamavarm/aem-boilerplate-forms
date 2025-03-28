@@ -1066,10 +1066,10 @@
             "valueType": "string"
           },
           {
-            "component": "text",
+            "component": "date-time",
             "name": "default",
             "label": "Default Value",
-            "valueType": "string"
+            "valueType": "date"
           }
         ]
       },
@@ -1766,6 +1766,18 @@
             ]
           }
         ]
+      },
+      {
+        "component": "text",
+        "name": "buttonText",
+        "label": "Button Title",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "dragDropText",
+        "label": "Drag Drop Text",
+        "valueType": "string"
       },
       {
         "component": "container",
@@ -2485,10 +2497,10 @@
             "valueType": "string"
           },
           {
-            "component": "text",
+            "component": "number",
             "name": "default",
             "label": "Default Value",
-            "valueType": "string"
+            "valueType": "number"
           },
           {
             "component": "select",
@@ -2606,7 +2618,7 @@
               },
               {
                 "name": "$1234.21",
-                "value": "()¤####0.00"
+                "value": "¤####0.00"
               },
               {
                 "name": "1,234.210",
