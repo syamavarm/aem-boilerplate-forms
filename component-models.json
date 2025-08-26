@@ -159,7 +159,7 @@
     "id": "embed-adaptive-form",
     "fields": [
       {
-        "component": "aem-content",
+        "component": "select-form",
         "valueType": "string",
         "name": "formPath",
         "value": "",
@@ -2024,9 +2024,9 @@
             }
           },
           {
-            "component": "select-form",
-            "name": "selectForm",
-            "label": "Select Form",
+            "component": "edit-fragment",
+            "name": "editFragment",
+            "label": "Edit Fragment",
             "valueType": "boolean"
           }
         ]

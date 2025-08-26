@@ -39,9 +39,9 @@
                             }
                         },
                         {
-                            "component": "select-form",
-                            "name": "selectForm",
-                            "label": "Select Form",
+                            "component": "edit-fragment",
+                            "name": "editFragment",
+                            "label": "Edit Fragment",
                             "valueType": "boolean"
                         }
                     ]
