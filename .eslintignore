@@ -8,3 +8,4 @@ scripts/editor-support-rte.js
 tools/forms-scaffolder.js
 tools/update-mappings.js
 /test
+dompurify.min.js

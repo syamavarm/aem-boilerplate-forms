@@ -1,5 +1,29 @@
 [
   {
+    "id": "page-metadata",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "jcr:title",
+        "label": "Title"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "jcr:description",
+        "label": "Description"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "keywords",
+        "multi": true,
+        "label": "Keywords"
+      }
+    ]
+  },
+  {
     "id": "image",
     "fields": [
       {
@@ -174,187 +198,23 @@
     "id": "form",
     "fields": [
       {
-        "component": "select",
-        "name": "thankYouOption",
-        "label": "On Submit",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Show message",
-            "value": "message"
-          }
-        ]
-      },
-      {
-        "component": "richtext",
-        "name": "thankYouMessage",
-        "label": "Message Content",
-        "valueType": "string",
-        "condition": {
-          "==": [
-            {
-              "var": "thankYouOption"
-            },
-            "message"
-          ]
-        }
-      },
-      {
-        "component": "select",
-        "valueType": "string",
-        "name": "actionType",
-        "label": "Submit Action",
-        "options": [
-          {
-            "name": "Submit to REST endpoint",
-            "value": "fd/af/components/guidesubmittype/restendpoint"
-          },
-          {
-            "name": "Send email",
-            "value": "fd/af/components/guidesubmittype/email"
-          },
-          {
-            "name": "Persist to Spreadsheet",
-            "value": "spreadsheet"
-          }
-        ],
-        "value": ""
-      },
-      {
-        "component": "boolean",
-        "name": "enableRestEndpointPost",
-        "label": "Enable POST request",
-        "valueType": "string",
-        "condition": {
-          "==": [
-            {
-              "var": "actionType"
-            },
-            "fd/af/components/guidesubmittype/restendpoint"
-          ]
-        }
-      },
-      {
-        "component": "text",
-        "name": "restEndpointPostUrl",
-        "label": "URL For POST request",
-        "valueType": "string",
-        "condition": {
-          "==": [
-            {
-              "var": "actionType"
-            },
-            "fd/af/components/guidesubmittype/restendpoint"
-          ]
-        }
-      },
-      {
-        "condition": {
-          "==": [
-            {
-              "var": "actionType"
-            },
-            "spreadsheet"
-          ]
-        },
-        "component": "text",
-        "name": "spreadsheetUrl",
-        "label": "Spreadsheet Url",
-        "valueType": "string"
-      },
-      {
         "component": "container",
-        "name": "email",
-        "label": "Email Configuration",
+        "name": "basic",
+        "label": "Use the Edit Form Properties extension to configure Adaptive Form properties, including Submit Action, Prefill, and Thank-You options.",
+        "description": "Visit https://www.adobe.com/go/learn_aemforms_cs_properties_ext for more details.",
         "collapsible": false,
-        "condition": {
-          "==": [
-            {
-              "var": "actionType"
-            },
-            "fd/af/components/guidesubmittype/email"
-          ]
-        },
         "fields": [
           {
             "component": "text",
-            "name": "from",
-            "label": "From",
+            "name": "customFunctionsPath",
+            "label": "Form Specific Custom Functions Path",
             "valueType": "string"
           },
           {
             "component": "text",
-            "name": "mailto",
-            "label": "To",
-            "valueType": "string",
-            "multi": true,
-            "required": true
-          },
-          {
-            "component": "text",
-            "name": "cc",
-            "label": "CC",
-            "valueType": "string",
-            "multi": true
-          },
-          {
-            "component": "text",
-            "name": "bcc",
-            "label": "BCC",
-            "valueType": "string",
-            "multi": true
-          },
-          {
-            "component": "text",
-            "name": "subject",
-            "label": "Subject",
+            "name": "style",
+            "label": "Form Specific styles path",
             "valueType": "string"
-          },
-          {
-            "component": "boolean",
-            "name": "useExternalEmailTemplate",
-            "label": "Use external template",
-            "valueType": "boolean"
-          },
-          {
-            "component": "boolean",
-            "name": "useHtmlTemplate",
-            "label": "Use html template",
-            "valueType": "boolean"
-          },
-          {
-            "component": "aem-content",
-            "name": "templatePath",
-            "label": "External template path",
-            "valueType": "string",
-            "condition": {
-              "==": [
-                {
-                  "var": "useExternalEmailTemplate"
-                },
-                true
-              ]
-            }
-          },
-          {
-            "component": "richtext",
-            "name": "template",
-            "label": "Email template",
-            "valueType": "string",
-            "condition": {
-              "!=": [
-                {
-                  "var": "useExternalEmailTemplate"
-                },
-                true
-              ]
-            }
-          },
-          {
-            "component": "boolean",
-            "name": "includeAttachments",
-            "label": "Include attachments",
-            "valueType": "boolean"
           }
         ]
       }
@@ -636,7 +496,7 @@
       },
       {
         "component": "select",
-        "label": "Data type of submitted value",
+        "label": "Save value as",
         "name": "type",
         "valueType": "string",
         "value": "string[]",
@@ -674,23 +534,6 @@
       },
       {
         "component": "tab",
-        "label": "Help Content",
-        "name": "help"
-      },
-      {
-        "component": "richtext",
-        "name": "description",
-        "label": "Help text",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "tooltip",
-        "label": "Short description",
-        "valueType": "string"
-      },
-      {
-        "component": "tab",
         "label": "Validation",
         "name": "validation"
       },
@@ -713,6 +556,23 @@
         "label": "Script validation message",
         "valueType": "string",
         "description": "Displayed when validation script fails."
+      },
+      {
+        "component": "tab",
+        "label": "Help Content",
+        "name": "help"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Help text",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "tooltip",
+        "label": "Short description",
+        "valueType": "string"
       }
     ]
   },
@@ -839,7 +699,7 @@
       },
       {
         "component": "select",
-        "label": "Data type of submitted value",
+        "label": "Save value as",
         "name": "type",
         "valueType": "string",
         "options": [
@@ -891,23 +751,6 @@
       },
       {
         "component": "tab",
-        "label": "Help Content",
-        "name": "help"
-      },
-      {
-        "component": "richtext",
-        "name": "description",
-        "label": "Help text",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "tooltip",
-        "label": "Short description",
-        "valueType": "string"
-      },
-      {
-        "component": "tab",
         "label": "Validation",
         "name": "validation"
       },
@@ -930,6 +773,23 @@
         "label": "Script validation message",
         "valueType": "string",
         "description": "Displayed when validation script fails."
+      },
+      {
+        "component": "tab",
+        "label": "Help Content",
+        "name": "help"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Help text",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "tooltip",
+        "label": "Short description",
+        "valueType": "string"
       }
     ]
   },
@@ -1068,23 +928,6 @@
       },
       {
         "component": "tab",
-        "label": "Help Content",
-        "name": "help"
-      },
-      {
-        "component": "richtext",
-        "name": "description",
-        "label": "Help text",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "tooltip",
-        "label": "Short description",
-        "valueType": "string"
-      },
-      {
-        "component": "tab",
         "label": "Validation",
         "name": "validation"
       },
@@ -1174,6 +1017,23 @@
             "value": "d/M/y"
           }
         ]
+      },
+      {
+        "component": "tab",
+        "label": "Help Content",
+        "name": "help"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Help text",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "tooltip",
+        "label": "Short description",
+        "valueType": "string"
       }
     ]
   },
@@ -1327,7 +1187,7 @@
       },
       {
         "component": "select",
-        "label": "Data type of submitted value",
+        "label": "Save value as",
         "name": "type",
         "valueType": "string",
         "value": "number",
@@ -1366,23 +1226,6 @@
       },
       {
         "component": "tab",
-        "label": "Help Content",
-        "name": "help"
-      },
-      {
-        "component": "richtext",
-        "name": "description",
-        "label": "Help text",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "tooltip",
-        "label": "Short description",
-        "valueType": "string"
-      },
-      {
-        "component": "tab",
         "label": "Validation",
         "name": "validation"
       },
@@ -1405,6 +1248,23 @@
         "label": "Script validation message",
         "valueType": "string",
         "description": "Displayed when validation script fails."
+      },
+      {
+        "component": "tab",
+        "label": "Help Content",
+        "name": "help"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Help text",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "tooltip",
+        "label": "Short description",
+        "valueType": "string"
       }
     ]
   },
@@ -1543,23 +1403,6 @@
       },
       {
         "component": "tab",
-        "label": "Help Content",
-        "name": "help"
-      },
-      {
-        "component": "richtext",
-        "name": "description",
-        "label": "Help text",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "tooltip",
-        "label": "Short description",
-        "valueType": "string"
-      },
-      {
-        "component": "tab",
         "label": "Validation",
         "name": "validation"
       },
@@ -1624,6 +1467,23 @@
         "valueType": "string",
         "label": "Pattern Error message",
         "description": "Error message shown when the pattern is not matched."
+      },
+      {
+        "component": "tab",
+        "label": "Help Content",
+        "name": "help"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Help text",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "tooltip",
+        "label": "Short description",
+        "valueType": "string"
       }
     ]
   },
@@ -1762,23 +1622,6 @@
       },
       {
         "component": "tab",
-        "label": "Help Content",
-        "name": "help"
-      },
-      {
-        "component": "richtext",
-        "name": "description",
-        "label": "Help text",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "tooltip",
-        "label": "Short description",
-        "valueType": "string"
-      },
-      {
-        "component": "tab",
         "label": "Validation",
         "name": "validation"
       },
@@ -1825,6 +1668,23 @@
         "component": "text",
         "name": "acceptMessage",
         "label": "File type error message",
+        "valueType": "string"
+      },
+      {
+        "component": "tab",
+        "label": "Help Content",
+        "name": "help"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Help text",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "tooltip",
+        "label": "Short description",
         "valueType": "string"
       }
     ]
@@ -1981,14 +1841,30 @@
         "name": "minOccur",
         "label": "Minimum repetitions",
         "valueType": "number",
-        "description": "Minimum number of times the fragment appears on the form"
+        "description": "Minimum number of times the fragment appears on the form",
+        "condition": {
+          "===": [
+            {
+              "var": "repeatable"
+            },
+            true
+          ]
+        }
       },
       {
         "component": "number",
         "name": "maxOccur",
         "label": "Maximum repetitions",
         "valueType": "number",
-        "description": "Maximum number of times the fragment can appear on the form"
+        "description": "Maximum number of times the fragment can appear on the form",
+        "condition": {
+          "===": [
+            {
+              "var": "repeatable"
+            },
+            true
+          ]
+        }
       },
       {
         "component": "tab",
@@ -2250,23 +2126,6 @@
       },
       {
         "component": "tab",
-        "label": "Help Content",
-        "name": "help"
-      },
-      {
-        "component": "richtext",
-        "name": "description",
-        "label": "Help text",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "tooltip",
-        "label": "Short description",
-        "valueType": "string"
-      },
-      {
-        "component": "tab",
         "label": "Validation",
         "name": "validation"
       },
@@ -2331,6 +2190,23 @@
         "valueType": "string",
         "label": "Pattern Error message",
         "description": "Error message shown when the pattern is not matched."
+      },
+      {
+        "component": "tab",
+        "label": "Help Content",
+        "name": "help"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Help text",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "tooltip",
+        "label": "Short description",
+        "valueType": "string"
       }
     ]
   },
@@ -2485,23 +2361,6 @@
       },
       {
         "component": "tab",
-        "label": "Help Content",
-        "name": "help"
-      },
-      {
-        "component": "richtext",
-        "name": "description",
-        "label": "Help text",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "tooltip",
-        "label": "Short description",
-        "valueType": "string"
-      },
-      {
-        "component": "tab",
         "label": "Validation",
         "name": "validation"
       },
@@ -2585,6 +2444,23 @@
             "value": "#,###,##0%"
           }
         ]
+      },
+      {
+        "component": "tab",
+        "label": "Help Content",
+        "name": "help"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Help text",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "tooltip",
+        "label": "Short description",
+        "valueType": "string"
       }
     ]
   },
@@ -3020,7 +2896,7 @@
       },
       {
         "component": "select",
-        "label": "Data type of submitted value",
+        "label": "Save value as",
         "name": "type",
         "valueType": "string",
         "options": [
@@ -3057,23 +2933,6 @@
       },
       {
         "component": "tab",
-        "label": "Help Content",
-        "name": "help"
-      },
-      {
-        "component": "richtext",
-        "name": "description",
-        "label": "Help text",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "tooltip",
-        "label": "Short description",
-        "valueType": "string"
-      },
-      {
-        "component": "tab",
         "label": "Validation",
         "name": "validation"
       },
@@ -3096,6 +2955,23 @@
         "label": "Script validation message",
         "valueType": "string",
         "description": "Displayed when validation script fails."
+      },
+      {
+        "component": "tab",
+        "label": "Help Content",
+        "name": "help"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Help text",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "tooltip",
+        "label": "Short description",
+        "valueType": "string"
       }
     ]
   },
@@ -3478,23 +3354,6 @@
       },
       {
         "component": "tab",
-        "label": "Help Content",
-        "name": "help"
-      },
-      {
-        "component": "richtext",
-        "name": "description",
-        "label": "Help text",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "tooltip",
-        "label": "Short description",
-        "valueType": "string"
-      },
-      {
-        "component": "tab",
         "label": "Validation",
         "name": "validation"
       },
@@ -3545,6 +3404,23 @@
         "valueType": "string",
         "label": "Maximum error message",
         "description": "Error message shown when the entered value is more than maximum."
+      },
+      {
+        "component": "tab",
+        "label": "Help Content",
+        "name": "help"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Help text",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "tooltip",
+        "label": "Short description",
+        "valueType": "string"
       }
     ]
   },
@@ -3689,23 +3565,6 @@
       },
       {
         "component": "tab",
-        "label": "Help Content",
-        "name": "help"
-      },
-      {
-        "component": "richtext",
-        "name": "description",
-        "label": "Help text",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "tooltip",
-        "label": "Short description",
-        "valueType": "string"
-      },
-      {
-        "component": "tab",
         "label": "Validation",
         "name": "validation"
       },
@@ -3770,6 +3629,23 @@
         "valueType": "string",
         "label": "Pattern Error message",
         "description": "Error message shown when the pattern is not matched."
+      },
+      {
+        "component": "tab",
+        "label": "Help Content",
+        "name": "help"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Help text",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "tooltip",
+        "label": "Short description",
+        "valueType": "string"
       }
     ]
   },
@@ -4258,23 +4134,6 @@
       },
       {
         "component": "tab",
-        "label": "Help Content",
-        "name": "help"
-      },
-      {
-        "component": "richtext",
-        "name": "description",
-        "label": "Help text",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "tooltip",
-        "label": "Short description",
-        "valueType": "string"
-      },
-      {
-        "component": "tab",
         "label": "Validation",
         "name": "validation"
       },
@@ -4339,6 +4198,23 @@
         "valueType": "string",
         "label": "Pattern Error message",
         "description": "Error message shown when the pattern is not matched."
+      },
+      {
+        "component": "tab",
+        "label": "Help Content",
+        "name": "help"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Help text",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "tooltip",
+        "label": "Short description",
+        "valueType": "string"
       }
     ]
   },
@@ -4465,23 +4341,6 @@
       },
       {
         "component": "tab",
-        "label": "Help Content",
-        "name": "help"
-      },
-      {
-        "component": "richtext",
-        "name": "description",
-        "label": "Help text",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "tooltip",
-        "label": "Short description",
-        "valueType": "string"
-      },
-      {
-        "component": "tab",
         "label": "Validation",
         "name": "validation"
       },
@@ -4544,6 +4403,23 @@
         "label": "Step Value",
         "valueType": "number",
         "description": "Step value for the range"
+      },
+      {
+        "component": "tab",
+        "label": "Help Content",
+        "name": "help"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Help text",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "tooltip",
+        "label": "Short description",
+        "valueType": "string"
       }
     ]
   },
@@ -4670,23 +4546,6 @@
       },
       {
         "component": "tab",
-        "label": "Help Content",
-        "name": "help"
-      },
-      {
-        "component": "richtext",
-        "name": "description",
-        "label": "Help text",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "tooltip",
-        "label": "Short description",
-        "valueType": "string"
-      },
-      {
-        "component": "tab",
         "label": "Validation",
         "name": "validation"
       },
@@ -4737,6 +4596,23 @@
         "valueType": "string",
         "label": "Maximum error message",
         "description": "Error message shown when the entered value is more than maximum."
+      },
+      {
+        "component": "tab",
+        "label": "Help Content",
+        "name": "help"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Help text",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "tooltip",
+        "label": "Short description",
+        "valueType": "string"
       }
     ]
   },
