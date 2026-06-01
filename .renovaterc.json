@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "extends": ["config:recommended"],
 <<<<<<< HEAD
   "packageRules": [
@@ -21,5 +22,8 @@
       "labels": ["ignore-psi-check"], 
       "automerge": true
   }]
+=======
+  "extends": ["config:recommended"]
+>>>>>>> 09c3131 (Revert "chore:monthly sync from xwalk (#112)")
 }
 >>>>>>> cd081e8 (chore:monthly sync from xwalk (#112))
