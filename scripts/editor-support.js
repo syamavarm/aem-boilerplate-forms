@@ -121,7 +121,11 @@ async function attachEventListners(main) {
   module.attachEventListners(main);
 }
 
+<<<<<<< HEAD
 attachEventListeners(document.querySelector('main'));
+=======
+attachEventListners(document.querySelector('main'));
+>>>>>>> cd081e8 (chore:monthly sync from xwalk (#112))
 
 // decorate rich text
 // this has to happen after decorateMain(), and everythime decorateBlocks() is called
