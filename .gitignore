@@ -23,4 +23,10 @@ helix-importer-ui
 /playwright/.cache/
 test/e2e/reports/
 LoginAuth.json
+<<<<<<< HEAD
 >>>>>>> b9d7a93 (feat: Adding Form block along with embed)
+=======
+
+# Skill distribution zip
+create-custom-component.zip
+>>>>>>> 6df77f8 (Adding change via subscribe method (#173))
