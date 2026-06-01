@@ -7,7 +7,20 @@ helix-importer-ui
 .DS_Store
 *.bak
 .idea
+<<<<<<< HEAD
 
 # Ensure these files are tracked
 !CLAUDE.md
 !AGENTS.md
+=======
+.nyc_output
+
+.env*
+.vscode
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+test/e2e/reports/
+LoginAuth.json
+>>>>>>> b9d7a93 (feat: Adding Form block along with embed)
