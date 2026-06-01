@@ -41,3 +41,27 @@ npm i
 ```sh
 npm run lint
 ```
+<<<<<<< HEAD
+=======
+
+## Local development
+
+1. Create a new repository based on the `aem-boilerplate` template and add a mountpoint in the `fstab.yaml`
+1. Add the [AEM Code Sync GitHub App](https://github.com/apps/aem-code-sync) to the repository
+1. Install the [AEM CLI](https://github.com/adobe/helix-cli): `npm install -g @adobe/aem-cli`
+1. Start AEM Proxy: `aem up` (opens your browser at `http://localhost:3000`)
+1. Open the `{repo}` directory in your favorite IDE and start coding :)
+
+## Custom Form Components
+
+Create custom form components using the interactive scaffolder:
+
+```sh
+npm run create:custom-component
+```
+
+This will guide you through creating a new custom component with:
+- Interactive prompts for component name and base type
+- Automatic file generation (JS, CSS, JSON)
+- Automatic integration in form block with mappings
+>>>>>>> 0ad441a (feat: AEM Forms Scaffolder + Separate Group in UE Authoring and code folder structure for custom components (#61))
